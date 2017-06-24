@@ -4,26 +4,24 @@
 #include <ctime>
 #include <sstream>
 
-using namespace std;
-
-class jogo : public cScreen{
+class scene1 : public cScreen{
 private:
     int posicaox, posicaoy, posicao;
 
 public:
-	jogo(void);
+	scene1(void);
 	virtual int Run(sf::RenderWindow &window);
 };
 
-jogo::jogo(void){
+scene1::scene1(void){
 
 }
 
-int jogo::Run(sf::RenderWindow &window){
+int scene1::Run(sf::RenderWindow &window){
 
     sf::Font font;
 
-    if (!font.loadFromFile("../Fonts/barn.otf")){
+    if (!font.loadFromFile("../Fonts/mmsarica_csi.ttf")){
         std::cout << "Error" << std::endl;
     }
 
