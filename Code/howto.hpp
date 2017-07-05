@@ -16,7 +16,7 @@ howto::howto(void){
 int howto::Run(sf::RenderWindow &window){
 
     sf::Font font;
-    if (!font.loadFromFile("../Fonts/barn.otf")){
+    if (!font.loadFromFile("../Fonts/PirataOne-Regular.ttf")){
         //erro
     }
 
@@ -52,8 +52,8 @@ int howto::Run(sf::RenderWindow &window){
         }
 
         //window.draw(background);
-        window.draw(text);
         window.clear(sf::Color::White);
+        window.draw(text);
         window.display();
     }
 	return (-1);

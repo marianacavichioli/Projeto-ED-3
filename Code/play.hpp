@@ -27,7 +27,7 @@ int play::Run(sf::RenderWindow &window){
 
     background.setTexture(texture);*/
 
-    menuplay Menuplay(window.getSize().x, window.getSize().y);
+    menuplay menu(window.getSize().x, window.getSize().y);
 
     while (window.isOpen()){
         
@@ -44,7 +44,7 @@ int play::Run(sf::RenderWindow &window){
                         case sf::Mouse::Left:
                             std::cout << "Pressed" << std::endl;
                             std::cout << posicaox << " , "<< posicaoy << std::endl;
-                            return Menuplay.GetPressedItem(posicaox, posicaoy);
+                            return menu.GetPressedItem(posicaox, posicaoy);
                         break;
                     }
                     
@@ -53,9 +53,15 @@ int play::Run(sf::RenderWindow &window){
                 case sf::Event::Closed:
                     window.close();
                     break;
+
+                case sf::Event::KeyPressed:
+                    if (event.key.code == sf::Keyboard::Escape){
+                        return 0;
+                    }
+                break;
                 
                 case sf::Event::MouseMoved:
-                    Menuplay.Position(posicaox, posicaoy);
+                    menu.Position(posicaox, posicaoy);
                     break;
             }
 
@@ -63,7 +69,7 @@ int play::Run(sf::RenderWindow &window){
         
         window.clear();
         //window.draw(background);
-        Menuplay.draw(window);
+        menu.draw(window);
         window.display();
 
     }
