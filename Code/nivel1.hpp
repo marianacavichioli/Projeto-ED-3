@@ -6,20 +6,20 @@
 
 using namespace std;
 
-class scene3 : public cScreen{
+class nivel1 : public cScreen{
 private:
     int posicaox, posicaoy, posicao;
 
 public:
-	scene3(void);
+	nivel1(void);
 	virtual int Run(sf::RenderWindow &window);
 };
 
-scene3::scene3(void){
+nivel1::nivel1(void){
 
 }
 
-int scene3::Run(sf::RenderWindow &window){
+int nivel1::Run(sf::RenderWindow &window){
 
     sf::Font font;
 

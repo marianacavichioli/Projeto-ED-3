@@ -1,14 +1,14 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include <iostream>
-#define Max_Itens 4
+#define Itens 3
 
 using namespace std;
 
-class Menu{
+class menuplay{
 public:
-	Menu (float width, float height);
-	~Menu();
+	menuplay (float width, float height);
+	~menuplay();
 
 	void draw(sf::RenderWindow &window);
 	void Position(int posicaox, int posicaoy);
@@ -18,54 +18,48 @@ private:
 	int SelectedItemIndex;
 	int posicaox, posicaoy, posicao;
 	sf::Font font;
-	sf::Text menu[Max_Itens];
+	sf::Text menu[Itens];
 };
 
-Menu::Menu(float width, float height){
+menuplay::menuplay(float width, float height){
 
 	if (!font.loadFromFile("../Fonts/PirataOne-Regular.ttf")){
 		std::cout << "Error" << std::endl;
 	}
 
-	menu[0].setFont(font);
-	menu[0].setColor(sf::Color::White);
-	menu[0].setString("WHERE ARE YOU?");
-	menu[0].setPosition(sf::Vector2f(195,60));	
-	menu[0].setCharacterSize(70);
-
 	menu[1].setFont(font);
 	menu[1].setColor(sf::Color::White);
-	menu[1].setString("Jogar");
+	menu[1].setString("Nivel 1");
 	menu[1].setPosition(sf::Vector2f(350,220));	
 	menu[1].setCharacterSize(50);		
 
 	menu[2].setFont(font);
 	menu[2].setColor(sf::Color::White);
-	menu[2].setString("Como Jogar");
+	menu[2].setString("Nivel 2");
 	menu[2].setPosition(sf::Vector2f(300, 300));	
 	menu[2].setCharacterSize(50);	
 
 	menu[3].setFont(font);
 	menu[3].setColor(sf::Color::White);
-	menu[3].setString("Sair");
+	menu[3].setString("Nivel 3");
 	menu[3].setPosition(sf::Vector2f(355, 380));	
 	menu[3].setCharacterSize(50);	
 
 	SelectedItemIndex = 0;
 }
 
-Menu::~Menu(){
+menuplay::~menuplay(){
 
 }
 
-void Menu::draw(sf::RenderWindow &window){
-	for(int i=0; i < Max_Itens; i++){
+void menuplay::draw(sf::RenderWindow &window){
+	for(int i=0; i < Itens; i++){
 		window.draw(menu[i]);
 	}
 }
 
 
-void Menu::Position(int posicaox, int posicaoy){
+void menuplay::Position(int posicaox, int posicaoy){
 
 	posicao = 0;
 
@@ -105,7 +99,7 @@ void Menu::Position(int posicaox, int posicaoy){
 }
 
 
-int Menu::GetPressedItem(int posicaox, int posicaoy){
+int menuplay::GetPressedItem(int posicaox, int posicaoy){
 
 
 	if (posicaoy>=230 && posicaoy<=281){

@@ -4,20 +4,22 @@
 #include <ctime>
 #include <sstream>
 
-class scene1 : public cScreen{
+using namespace std;
+
+class nivel2 : public cScreen{
 private:
     int posicaox, posicaoy, posicao;
 
 public:
-	scene1(void);
+	nivel2(void);
 	virtual int Run(sf::RenderWindow &window);
 };
 
-scene1::scene1(void){
+nivel2::nivel2(void){
 
 }
 
-int scene1::Run(sf::RenderWindow &window){
+int nivel2::Run(sf::RenderWindow &window){
 
     sf::Font font;
 

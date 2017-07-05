@@ -11,20 +11,22 @@ int main(){
 
     mainmenu s0;
     Screens.push_back(&s0);
-    scene1 s1;
+    play s1;
     Screens.push_back(&s1);
-    scene2 s2;
+    nivel1 s2;
     Screens.push_back(&s2);
-    scene3 s3;
+    nivel2 s3;
     Screens.push_back(&s3);
-    howto s4;
+    nivel3 s4;
     Screens.push_back(&s4);
+    howto s5;
+    Screens.push_back(&s5);
     
 
     while (screen >= 0){
         switch (screen = Screens[screen]->Run(window)){
             case 1:
-                Screens[1] = new scene1();
+                Screens[1] = new play();
             break;
         }
     }
