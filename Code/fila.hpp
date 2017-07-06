@@ -29,9 +29,6 @@ Fila::Fila() {
 	ultimo = NULL;
 }
 
-
-
-
 void Fila::Insere(Objeto& o1){
 	
 	node *aux = new node;
@@ -51,17 +48,15 @@ void Fila::Insere(Objeto& o1){
 			ultimo = aux;
 			aux = NULL;
 			delete aux;
-			
+
 		} else if (primeiro->next == ultimo){
 				aux->info = o1;
 				ultimo->next = aux;
 				ultimo = aux;
 				ultimo->next = primeiro;
 				aux = NULL;
-				delete aux;
-				
+				delete aux;				
 			}
-	
 }
 
 Objeto Fila::Retira(){
@@ -88,7 +83,6 @@ Objeto Fila::Retira(){
 				ultimo->next = primeiro;
 				delete aux;
 			}
-			
 	return r;
 }
 
@@ -102,18 +96,20 @@ bool Fila::Vazia(){
 int Fila::Contador(){
 	Fila aux1;
 	Objeto o;
-	int i;
-	
+	int i = 0;
 	while (this->Vazia() != true){
 		o = this->Retira();
-		this->Insere(o);
+		aux1.Insere(o);
 		i++;
 	}
-	
+	while(aux1.Vazia() != true){
+		o = aux1.Retira();
+		this->Insere(o);
+	}
 	return i;
 }
 	
-	
+/* Para testar a estrutura basta descomentar essa parte e salvar o arquivo como fila.cpp
 int main() {
 		
 	Fila f1;
@@ -125,7 +121,6 @@ int main() {
 	else
 		cout << "deu ruim" << endl;
 	
-	
 	f1.Insere(teste);
 	f1.Insere(teste);
 	f1.Insere(teste);
@@ -135,7 +130,7 @@ int main() {
 	lixo = f1.Retira();
 	cout << "Retirou" << endl;
 	cout << f1.Contador() << endl;	
-	
-	
+		
 	return 0;
 }
+*/
