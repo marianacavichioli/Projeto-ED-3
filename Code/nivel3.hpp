@@ -9,6 +9,8 @@ using namespace std;
 class nivel3 : public cScreen{
 private:
     int posicaox, posicaoy, posicao;
+    sf::Sprite background;
+    sf::Texture texture;
 
 public:
 	nivel3(void);
@@ -28,10 +30,10 @@ int nivel3::Run(sf::RenderWindow &window){
     }
 
     //Background
-    /*if(!texture.loadFromFile("../Images/background.bmp")){
+    if(!texture.loadFromFile("../Images/fundo.bmp")){
         std::cout << "Error" << std::endl;
     }
-    background.setTexture(texture);*/
+    background.setTexture(texture);
 
     while (window.isOpen()){
         
@@ -69,7 +71,7 @@ int nivel3::Run(sf::RenderWindow &window){
 
 
         window.clear(sf::Color::White);
-        //window.draw(background);
+        window.draw(background);
         window.display();
 
     }
