@@ -3,6 +3,7 @@
 #include <iostream>
 #include <ctime>
 #include <sstream>
+#include "fila.hpp"
 
 using namespace std;
 
@@ -10,6 +11,9 @@ class nivel1 : public cScreen{
 private:
     int posicaox, posicaoy, posicao;
     int countdown = 60;
+    Fila fila;
+    Objeto obj1, obj2, obj3, obj4, obj5;
+
     sf::Texture texture;
     sf::Texture peixeEscondido;
     sf::Texture ancoraEscondida;
@@ -138,6 +142,11 @@ int nivel1::Run(sf::RenderWindow &window){
     sf::Sprite Objeto10(passaro);
     Objeto10.setPosition(sf::Vector2f(560,510));
 
+    fila.Insere(obj1); //peixe
+    fila.Insere(obj2); //ancora
+    fila.Insere(obj3); //carangueijo
+    fila.Insere(obj4); //passaro
+    fila.Insere(obj5); //luneta
 
 
     while (window.isOpen()){
@@ -145,6 +154,8 @@ int nivel1::Run(sf::RenderWindow &window){
         sf::Event event;
 
         while (window.pollEvent(event)){
+            posicaoy = sf::Mouse::getPosition(window).y;
+            posicaox = sf::Mouse::getPosition(window).x;
 
             switch(event.type){
                 case sf::Event::MouseButtonPressed:
@@ -152,7 +163,16 @@ int nivel1::Run(sf::RenderWindow &window){
                     switch(event.key.code){
 
                         case sf::Mouse::Left:
-                            std::cout << "Pressed" << std::endl;                            
+                            std::cout << "Pressed" << std::endl; 
+                            if(Objeto1.getGlobalBounds().contains(posicaox, posicaoy)){
+                                fila.Retira();
+                                std::cout<<"Retirou 1" <<std::endl;
+                                //Objeto1.setTexture(); ---Apagar o objeto da tela
+                            }
+                            else if(Objeto2.getGlobalBounds().contains(posicaox, posicaoy)){
+                                fila.Retira();
+                                std::cout<<"Retirou 2" <<std::endl;
+                            }                           
                         break;
                     }
 
