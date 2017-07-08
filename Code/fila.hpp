@@ -22,6 +22,7 @@ class Fila {
 			Objeto Retira();
 			bool Vazia();
 			int Contador();	
+			Objeto first();
 };
 
 Fila::Fila() {
@@ -110,6 +111,12 @@ int Fila::Contador(){
 		this->Insere(o);
 	}
 	return i;
+}
+
+Objeto Fila::first(){
+	Objeto o;
+	o = primeiro->info;
+	return o;
 }
 	
 /* Para testar a estrutura basta descomentar essa parte e salvar o arquivo como fila.cpp

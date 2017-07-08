@@ -165,32 +165,31 @@ int nivel1::Run(sf::RenderWindow &window){
 
                         case sf::Mouse::Left:
                             std::cout << "Pressed" << std::endl; 
-                            if(Objeto1.getGlobalBounds().contains(posicaox, posicaoy) && index == 1){
+                            if(Objeto1.getGlobalBounds().contains(posicaox, posicaoy) && fila.first() == obj1){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 1" <<std::endl;
                                 status1 = false;
                                 index++;
-                                //Objeto1.setTexture(); ---Apagar o objeto da tela
                             }
-                            else if(Objeto2.getGlobalBounds().contains(posicaox, posicaoy) && index == 2){
+                            else if(Objeto2.getGlobalBounds().contains(posicaox, posicaoy) && fila.first() == obj2){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 2" <<std::endl;
                                 status2 = false;
                                 index++;
                             }
-                            else if(Objeto3.getGlobalBounds().contains(posicaox, posicaoy) && index == 3){
+                            else if(Objeto3.getGlobalBounds().contains(posicaox, posicaoy) && fila.first() == obj3){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 3" <<std::endl;
                                 status3 = false;
                                 index++;
                             }
-                            else if(Objeto4.getGlobalBounds().contains(posicaox, posicaoy) && index == 4){
+                            else if(Objeto4.getGlobalBounds().contains(posicaox, posicaoy) && fila.first() == obj4){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 4" <<std::endl;
                                 status4 = false;
                                 index++;
                             }
-                            else if(Objeto5.getGlobalBounds().contains(posicaox, posicaoy) && index == 5){
+                            else if(Objeto5.getGlobalBounds().contains(posicaox, posicaoy) && fila.first() == obj5){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 5" <<std::endl;
                                 status5 = false;
