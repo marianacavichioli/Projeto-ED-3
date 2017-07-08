@@ -2,7 +2,7 @@
 #include <cstdlib>
 using namespace std;
 
-enum Objeto {obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12, obj13, obj14, obj15};
+enum Objeto {obj0, obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12, obj13, obj14, obj15};
 
 struct node{
 	
@@ -42,47 +42,50 @@ void Fila::Insere(Objeto& o1){
 		delete aux;
 		
 	} else if (primeiro == ultimo) {
-			aux->info = o1;
-			primeiro->next = aux;
-			aux->next = primeiro;
-			ultimo = aux;
-			aux = NULL;
-			delete aux;
-
-		} else if (primeiro->next == ultimo){
-				aux->info = o1;
-				ultimo->next = aux;
-				ultimo = aux;
-				ultimo->next = primeiro;
-				aux = NULL;
-				delete aux;				
-			}
+		aux->info = o1;
+		primeiro->next = aux;
+		aux->next = primeiro;
+		ultimo = aux;
+		aux = NULL;
+		delete aux;
+	} else{
+		aux->info = o1;
+		ultimo->next = aux;
+		ultimo = aux;
+		ultimo->next = primeiro;
+		aux = NULL;
+		delete aux;				
+	}
 }
 
 Objeto Fila::Retira(){
 	
 	Objeto r;
 	node *aux = new node;
-	
-	if (primeiro == ultimo){
-		r = primeiro->info;
-		primeiro = NULL;
-		ultimo = NULL;
-		
-	}else if (primeiro->next == ultimo){
+
+	if (primeiro == NULL && ultimo == NULL){
+		r = obj0;
+	}else{
+		if (primeiro == ultimo){
 			r = primeiro->info;
-			ultimo->next = ultimo;
-			aux = primeiro;
-			primeiro = ultimo;
-			delete aux;
+			primeiro = NULL;
+			ultimo = NULL;
 			
-		} else {
+		}else if (primeiro->next == ultimo){
 				r = primeiro->info;
+				ultimo->next = ultimo;
 				aux = primeiro;
-				primeiro = primeiro->next;
-				ultimo->next = primeiro;
+				primeiro = ultimo;
 				delete aux;
+				
+			} else {
+					r = primeiro->info;
+					aux = primeiro;
+					primeiro = primeiro->next;
+					ultimo->next = primeiro;
+					delete aux;
 			}
+	}
 	return r;
 }
 

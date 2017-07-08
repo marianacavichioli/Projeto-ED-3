@@ -12,8 +12,8 @@ private:
     int posicaox, posicaoy, posicao;
     int countdown = 60;
     Fila fila;
-    Objeto obj1, obj2, obj3, obj4, obj5;
-
+    Objeto obj1, obj2, obj3, obj4, obj5, lixo;
+    bool status1 = true, status2 = true, status3 = true, status4 = true, status5 = true;
     sf::Texture texture;
     sf::Texture peixeEscondido;
     sf::Texture ancoraEscondida;
@@ -147,7 +147,7 @@ int nivel1::Run(sf::RenderWindow &window){
     fila.Insere(obj3); //carangueijo
     fila.Insere(obj4); //passaro
     fila.Insere(obj5); //luneta
-
+    std::cout << fila.Contador() << endl;
 
     while (window.isOpen()){
         
@@ -164,15 +164,32 @@ int nivel1::Run(sf::RenderWindow &window){
 
                         case sf::Mouse::Left:
                             std::cout << "Pressed" << std::endl; 
-                            if(Objeto1.getGlobalBounds().contains(posicaox, posicaoy)){
-                                fila.Retira();
+                            if(Objeto1.getGlobalBounds().contains(posicaox, posicaoy) && status1){
+                                lixo = fila.Retira();
                                 std::cout<<"Retirou 1" <<std::endl;
+                                status1 = false;
                                 //Objeto1.setTexture(); ---Apagar o objeto da tela
                             }
-                            else if(Objeto2.getGlobalBounds().contains(posicaox, posicaoy)){
-                                fila.Retira();
+                            else if(Objeto2.getGlobalBounds().contains(posicaox, posicaoy) && status2){
+                                lixo = fila.Retira();
                                 std::cout<<"Retirou 2" <<std::endl;
-                            }                           
+                                status2 = false;
+                            }
+                            else if(Objeto3.getGlobalBounds().contains(posicaox, posicaoy) && status3){
+                                lixo = fila.Retira();
+                                std::cout<<"Retirou 3" <<std::endl;
+                                status3 = false;
+                            }
+                            else if(Objeto4.getGlobalBounds().contains(posicaox, posicaoy) && status4){
+                                lixo = fila.Retira();
+                                std::cout<<"Retirou 4" <<std::endl;
+                                status4 = false;
+                            }
+                            else if(Objeto5.getGlobalBounds().contains(posicaox, posicaoy) && status5){
+                                lixo = fila.Retira();
+                                std::cout<<"Retirou 5" <<std::endl;
+                                status5 = false;
+                            }                          
                         break;
                     }
 
@@ -204,11 +221,16 @@ int nivel1::Run(sf::RenderWindow &window){
 
         window.clear(sf::Color::White);
         window.draw(background);
-        window.draw(Objeto1);
-        window.draw(Objeto2);
-        window.draw(Objeto3);
-        window.draw(Objeto4);
-        window.draw(Objeto5);
+        if (status1)
+            window.draw(Objeto1);
+        if (status2)
+            window.draw(Objeto2);
+        if (status3)
+            window.draw(Objeto3);
+        if (status4)
+            window.draw(Objeto4);
+        if (status5)
+            window.draw(Objeto5);
         window.draw(Objeto6);
         window.draw(Objeto7);
         window.draw(Objeto8);
@@ -217,6 +239,14 @@ int nivel1::Run(sf::RenderWindow &window){
         window.draw(timerText);
         window.draw(timerhead);
         window.display();
+
+        if (fila.Contador() == 0){
+            return 0; //tela de ganhou do lvl1
+        }
+
+        if (countdown == 0){
+            return 0; //tela perdeu
+        }
 
     }
     
