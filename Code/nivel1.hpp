@@ -149,19 +149,19 @@ int nivel1::Run(sf::RenderWindow &window){
 
     //Objetos Menu
     sf::Sprite Objeto1(peixe);
-    Objeto1.setPosition(sf::Vector2f(390,515));
+    Objeto1.setPosition(sf::Vector2f(370,490));
 
     sf::Sprite Objeto2(ancora);
-    Objeto2.setPosition(sf::Vector2f(450,515));
+    Objeto2.setPosition(sf::Vector2f(430,490));
 
     sf::Sprite Objeto3(carangueijo);
-    Objeto3.setPosition(sf::Vector2f(490,515));
+    Objeto3.setPosition(sf::Vector2f(490,490));
 
-    sf::Sprite Objeto4(luneta);
-    Objeto4.setPosition(sf::Vector2f(630,500));
+    sf::Sprite Objeto4(passaro);
+    Objeto4.setPosition(sf::Vector2f(560,490));
 
-    sf::Sprite Objeto5(passaro);
-    Objeto5.setPosition(sf::Vector2f(560,510));
+    sf::Sprite Objeto5(luneta);
+    Objeto5.setPosition(sf::Vector2f(630,490));
 
     fila.Insere(obj1); //peixe
     fila.Insere(obj2); //ancora
