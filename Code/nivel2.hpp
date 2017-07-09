@@ -110,39 +110,39 @@ int nivel2::Run(sf::RenderWindow &window){
 
     //Texturas Objetos Menu
 
-    if(!peixe.loadFromFile("../Images/recortadas/peixe_padrao.bmp")){
+    if(!peixe.loadFromFile("../Images/recortadas/peixe_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!ancora.loadFromFile("../Images/recortadas/ancora_padrao.bmp")){
+    if(!ancora.loadFromFile("../Images/recortadas/ancora_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!carangueijo.loadFromFile("../Images/recortadas/carangueijo_padrao.bmp")){
+    if(!carangueijo.loadFromFile("../Images/recortadas/carangueijo_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!luneta.loadFromFile("../Images/recortadas/luneta_padrao.bmp")){
+    if(!luneta.loadFromFile("../Images/recortadas/luneta_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!passaro.loadFromFile("../Images//recortadas/passara_padrao.bmp")){
+    if(!passaro.loadFromFile("../Images//recortadas/passaro_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!peixe_c.loadFromFile("../Images/recortadas/peixe_padrao_c.bmp")){
+    if(!peixe_c.loadFromFile("../Images/recortadas/peixe_padrao_c.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!ancora_c.loadFromFile("../Images/recortadas/ancora_padrao_c.bmp")){
+    if(!ancora_c.loadFromFile("../Images/recortadas/ancora_padrao_c.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!carangueijo_c.loadFromFile("../Images/recortadas/carangueijo_padrao_c.bmp")){
+    if(!carangueijo_c.loadFromFile("../Images/recortadas/carangueijo_padrao_c.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!luneta_c.loadFromFile("../Images/recortadas/luneta_padrao_c.bmp")){
+    if(!luneta_c.loadFromFile("../Images/recortadas/luneta_padrao_c.png")){
         std::cout << "Error" << std::endl;
     }
 
