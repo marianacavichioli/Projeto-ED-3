@@ -49,7 +49,7 @@ nivel1::nivel1(void){
 
 int nivel1::Run(sf::RenderWindow &window){
 
-    if (!font.loadFromFile("../Fonts/mmsarica_csi.ttf")){
+    if (!font.loadFromFile("../Fonts/PirataOne-Regular.ttf")){
         std::cout << "Error" << std::endl;
     }
 

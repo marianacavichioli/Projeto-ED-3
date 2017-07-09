@@ -3,11 +3,10 @@
 #include <iostream>
 #include <ctime>
 #include <sstream>
-#include "fila.hpp"
 
 using namespace std;
 
-class nivel1 : public cScreen{
+class nivel2 : public cScreen{
 private:
     int posicaox, posicaoy, posicao;
     int countdown = 60;
@@ -39,17 +38,17 @@ private:
     std::ostringstream converter;
 
 public:
-    nivel1(void);
+    nivel2(void);
     virtual int Run(sf::RenderWindow &window);
 };
 
-nivel1::nivel1(void){
+nivel2::nivel2(void){
 
 }
 
-int nivel1::Run(sf::RenderWindow &window){
+int nivel2::Run(sf::RenderWindow &window){
 
-    if (!font.loadFromFile("../Fonts/mmsarica_csi.ttf")){
+    if (!font.loadFromFile("../Fonts/PirataOne-Regular.ttf")){
         std::cout << "Error" << std::endl;
     }
 
