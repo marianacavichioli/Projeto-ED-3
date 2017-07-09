@@ -42,8 +42,6 @@ menuplay::menuplay(float width, float height){
 	menu[3].setString("Nivel 3");
 	menu[3].setPosition(sf::Vector2f(350, 380));	
 	menu[3].setCharacterSize(50);	
-
-	//SelectedItemIndex = 0;
 }
 
 menuplay::~menuplay(){
@@ -51,9 +49,9 @@ menuplay::~menuplay(){
 }
 
 void menuplay::draw(sf::RenderWindow &window){
-	for(int i=1; i < 4; i++){
+	/*for(int i=1; i < 4; i++){
 		window.draw(menu[i]);
-	}
+	}*/
 }
 
 

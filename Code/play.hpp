@@ -6,6 +6,11 @@ class play : public cScreen{
 private:
     int posicaoy, posicaox;
     int SelectedItemIndex;
+    sf::Sprite background;
+    sf::Texture texture;
+    sf::Texture lvl1;
+    sf::Texture lvl2;
+    sf::Texture lvl3;
 
 public:
     play(void);
@@ -16,16 +21,35 @@ play::play(void){
 
 }
 
-int play::Run(sf::RenderWindow &window){
+int play::Run(sf::RenderWindow &window){ 
 
-    /*sf::Sprite background;
-    sf::Texture texture;
-
-    if(!texture.loadFromFile("../Images/menu_sem_texto.bmp")){
+    if(!texture.loadFromFile("../Images//recortadas/inicio.bmp")){
         std::cout << "Error" << std::endl;
     }
 
-    background.setTexture(texture);*/
+    background.setTexture(texture);
+
+    if(!lvl1.loadFromFile("../Images//recortadas/epic.png")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!lvl2.loadFromFile("../Images//recortadas/uthere.png")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!lvl3.loadFromFile("../Images//recortadas/hello.png")){
+        std::cout << "Error" << std::endl;
+    }
+
+    sf::Sprite nivel1(lvl1);
+    nivel1.setPosition(sf::Vector2f(550,310));
+
+    sf::Sprite nivel2(lvl2);
+    nivel2.setPosition(sf::Vector2f(100,220));
+
+    sf::Sprite nivel3(lvl3);
+    nivel3.setPosition(sf::Vector2f(300,30));   
+
 
     menuplay menu(window.getSize().x, window.getSize().y);
 
@@ -42,13 +66,20 @@ int play::Run(sf::RenderWindow &window){
                     switch(event.key.code){
 
                         case sf::Mouse::Left:
-                            std::cout << "Pressed" << std::endl;
-                            std::cout << posicaox << " , "<< posicaoy << std::endl;
-                            return menu.GetPressedItem(posicaox, posicaoy);
+
+                            if(nivel1.getGlobalBounds().contains(posicaox, posicaoy)){
+                                return 4;
+                            }
+                            else if(nivel2.getGlobalBounds().contains(posicaox, posicaoy)){
+                                return 5;
+                            }
+                            else if(nivel3.getGlobalBounds().contains(posicaox, posicaoy)){
+                                return 6;
+                            }
                         break;
                     }
                     
-                    break;
+                break;
 
                 case sf::Event::Closed:
                     window.close();
@@ -68,7 +99,10 @@ int play::Run(sf::RenderWindow &window){
         }
         
         window.clear();
-        //window.draw(background);
+        window.draw(background);
+        window.draw(nivel1);
+        window.draw(nivel2);
+        window.draw(nivel3);
         menu.draw(window);
         window.display();
 
