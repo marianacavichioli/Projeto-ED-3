@@ -26,11 +26,6 @@ private:
     sf::Texture carangueijo;
     sf::Texture luneta;
     sf::Texture passaro;
-    sf::Texture peixe_c;
-    sf::Texture ancora_c;
-    sf::Texture carangueijo_c;
-    sf::Texture luneta_c;
-    sf::Texture passaro_c;
     sf::Sprite background;
     sf::Font font;
     sf::Clock clockgeral;
@@ -132,21 +127,6 @@ int nivel1::Run(sf::RenderWindow &window){
         std::cout << "Error" << std::endl;
     }
 
-    if(!peixe_c.loadFromFile("../Images/recortadas/peixe_padrao_c.png")){
-        std::cout << "Error" << std::endl;
-    }
-
-    if(!ancora_c.loadFromFile("../Images/recortadas/ancora_padrao_c.png")){
-        std::cout << "Error" << std::endl;
-    }
-
-    if(!carangueijo_c.loadFromFile("../Images/recortadas/carangueijo_padrao_c.png")){
-        std::cout << "Error" << std::endl;
-    }
-
-    if(!luneta_c.loadFromFile("../Images/recortadas/luneta_padrao_c.png")){
-        std::cout << "Error" << std::endl;
-    }
 
     //Objetos Menu
     sf::Sprite Objeto1(peixe);
@@ -189,19 +169,16 @@ int nivel1::Run(sf::RenderWindow &window){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 1" <<std::endl;
                                 status1 = false;
-                                Objeto1.setTexture(peixe_c);
                             }
                             else if(Objeto2e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj2)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 2" <<std::endl;
                                 status2 = false;
-                                Objeto2.setTexture(ancora_c);
                             }
                             else if(Objeto3e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj3)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 3" <<std::endl;
                                 status3 = false;
-                                Objeto3.setTexture(carangueijo_c);
                             }
                             else if(Objeto4e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj4)){
                                 lixo = fila.Retira();
@@ -212,7 +189,6 @@ int nivel1::Run(sf::RenderWindow &window){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 5" <<std::endl;
                                 status5 = false;
-                                Objeto5.setTexture(luneta_c);
                             }                          
                         break;
                     }

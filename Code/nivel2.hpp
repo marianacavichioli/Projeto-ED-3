@@ -36,11 +36,6 @@ private:
     sf::Texture carta;
     sf::Texture colmeia;
     sf::Texture concha;
-    sf::Texture peixe_c;
-    sf::Texture ancora_c;
-    sf::Texture carangueijo_c;
-    sf::Texture luneta_c;
-    sf::Texture passaro_c;
     sf::Sprite background;
     sf::Font font;
     sf::Clock clockgeral;
@@ -244,19 +239,16 @@ int nivel2::Run(sf::RenderWindow &window){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 1" <<std::endl;
                                 status1 = false;
-                                Objeto1.setTexture(peixe_c);
                             }
                             else if(Objeto2e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj2)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 2" <<std::endl;
                                 status2 = false;
-                                Objeto2.setTexture(ancora_c);
                             }
                             else if(Objeto3e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj3)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 3" <<std::endl;
                                 status3 = false;
-                                Objeto3.setTexture(carangueijo_c);
                             }
                             else if(Objeto4e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj4)){
                                 lixo = fila.Retira();
@@ -267,37 +259,31 @@ int nivel2::Run(sf::RenderWindow &window){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 5" <<std::endl;
                                 status5 = false;
-                                Objeto5.setTexture(luneta_c);
                             }
                             else if(Objeto6e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj6)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 6" <<std::endl;
                                 status6 = false;
-                                //Objeto6.setTexture(luneta_c);
                             }  
                             else if(Objeto7e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj7)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 7" <<std::endl;
                                 status7 = false;
-                                //Objeto5.setTexture(luneta_c);
                             }  
                             else if(Objeto8e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj8)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 8" <<std::endl;
                                 status8 = false;
-                                //Objeto5.setTexture(luneta_c);
                             }  
                             else if(Objeto9e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj9)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 9" <<std::endl;
                                 status9 = false;
-                                //Objeto5.setTexture(luneta_c);
                             }
                             else if(Objeto10e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj10)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 10" <<std::endl;
                                 status10 = false;
-                                //Objeto5.setTexture(luneta_c);
                             }                             
                         break;
                     }
