@@ -4,6 +4,7 @@
 #include <ctime>
 #include <sstream>
 
+
 using namespace std;
 
 class nivel2 : public cScreen{
@@ -11,19 +12,30 @@ private:
     int posicaox, posicaoy, posicao;
     int countdown = 60;
     Fila fila;
-    Objeto opeixe = obj1, oancora = obj2 , ocarangueijo = obj3, opassaro = obj4, oluneta = obj5, lixo;
-    bool status1 = true, status2 = true, status3 = true, status4 = true, status5 = true;
+    Objeto opeixe = obj1, oancora = obj2 , ocarangueijo = obj3, opassaro = obj4, oluneta = obj5, lixo, oanzol = obj6, ocavalo = obj7, ocarta = obj8, ocolmeia = obj9, oconcha = obj10;
+    bool status1 = true, status2 = true, status3 = true, status4 = true, status5 = true, status6 = true, status7 = true, status8 = true, status9 = true, status10 = true;
+    bool ostatus1 = true, ostatus2 = true, ostatus3 = true, ostatus4 = true, ostatus5 = true, ostatus6 = true, ostatus7 = true, ostatus8 = true, ostatus9 = true, ostatus10 = true;
     sf::Texture texture;
     sf::Texture peixeEscondido;
     sf::Texture ancoraEscondida;
     sf::Texture carangueijoEscondido;
     sf::Texture lunetaEscondida;
     sf::Texture passaroEscondido;
+    sf::Texture anzolEscondido;
+    sf::Texture cavaloEscondido;
+    sf::Texture cartaEscondida;
+    sf::Texture colmeiaEscondida;
+    sf::Texture conchaEscondida;
     sf::Texture peixe;
     sf::Texture ancora;
     sf::Texture carangueijo;
     sf::Texture luneta;
     sf::Texture passaro;
+    sf::Texture anzol;
+    sf::Texture cavalo;
+    sf::Texture carta;
+    sf::Texture colmeia;
+    sf::Texture concha;
     sf::Texture peixe_c;
     sf::Texture ancora_c;
     sf::Texture carangueijo_c;
@@ -92,21 +104,56 @@ int nivel2::Run(sf::RenderWindow &window){
         std::cout << "Error" << std::endl;
     }
 
+    if(!anzolEscondido.loadFromFile("../Images/recortadas/anzol_e.png")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!cavaloEscondido.loadFromFile("../Images/recortadas/cavalo1_e.png")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!cartaEscondida.loadFromFile("../Images/recortadas/carta_e.png")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!colmeiaEscondida.loadFromFile("../Images/recortadas/colmeia_e.png")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!conchaEscondida.loadFromFile("../Images/recortadas/concha_e.png")){
+        std::cout << "Error" << std::endl;
+    }
+
     //Objetos Escondidos
     sf::Sprite Objeto1e(peixeEscondido);
-    Objeto1e.setPosition(sf::Vector2f(750,310));
+    Objeto1e.setPosition(sf::Vector2f(400,320));
 
     sf::Sprite Objeto2e(ancoraEscondida);
     Objeto2e.setPosition(sf::Vector2f(145,310));
 
     sf::Sprite Objeto3e(carangueijoEscondido);
-    Objeto3e.setPosition(sf::Vector2f(285,479));
+    Objeto3e.setPosition(sf::Vector2f(0,310));
 
     sf::Sprite Objeto4e(passaroEscondido);
     Objeto4e.setPosition(sf::Vector2f(350,60));
 
     sf::Sprite Objeto5e(lunetaEscondida);
-    Objeto5e.setPosition(sf::Vector2f(240,450));
+    Objeto5e.setPosition(sf::Vector2f(675,386));
+
+    sf::Sprite Objeto6e(anzolEscondido);
+    Objeto6e.setPosition(sf::Vector2f(389,200));
+
+    sf::Sprite Objeto7e(cavaloEscondido);
+    Objeto7e.setPosition(sf::Vector2f(750,310));
+
+    sf::Sprite Objeto8e(cartaEscondida);
+    Objeto8e.setPosition(sf::Vector2f(170,55));
+
+    sf::Sprite Objeto9e(colmeiaEscondida);
+    Objeto9e.setPosition(sf::Vector2f(30,0));
+
+    sf::Sprite Objeto10e(conchaEscondida);
+    Objeto10e.setPosition(sf::Vector2f(100,580));
 
     //Texturas Objetos Menu
 
@@ -126,23 +173,27 @@ int nivel2::Run(sf::RenderWindow &window){
         std::cout << "Error" << std::endl;
     }
 
-    if(!passaro.loadFromFile("../Images//recortadas/passaro_padrao.png")){
+    if(!passaro.loadFromFile("../Images/recortadas/passaro_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!peixe_c.loadFromFile("../Images/recortadas/peixe_padrao_c.png")){
+    if(!anzol.loadFromFile("../Images/recortadas/anzol_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!ancora_c.loadFromFile("../Images/recortadas/ancora_padrao_c.png")){
+    if(!cavalo.loadFromFile("../Images/recortadas/cavalo_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!carangueijo_c.loadFromFile("../Images/recortadas/carangueijo_padrao_c.png")){
+    if(!carta.loadFromFile("../Images/recortadas/carta_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!luneta_c.loadFromFile("../Images/recortadas/luneta_padrao_c.png")){
+    if(!colmeia.loadFromFile("../Images/recortadas/colmeia_padrao.png")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!concha.loadFromFile("../Images/recortadas/concha_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
@@ -162,11 +213,31 @@ int nivel2::Run(sf::RenderWindow &window){
     sf::Sprite Objeto5(luneta);
     Objeto5.setPosition(sf::Vector2f(630,490));
 
+    sf::Sprite Objeto6(anzol);
+    Objeto6.setPosition(sf::Vector2f(630,490));
+
+    sf::Sprite Objeto7(cavalo);
+    Objeto7.setPosition(sf::Vector2f(630,490));
+
+    sf::Sprite Objeto8(carta);
+    Objeto8.setPosition(sf::Vector2f(630,490));
+
+    sf::Sprite Objeto9(colmeia);
+    Objeto9.setPosition(sf::Vector2f(630,490));
+
+    sf::Sprite Objeto10(concha);
+    Objeto10.setPosition(sf::Vector2f(630,490));
+
     fila.Insere(opeixe); //peixe
     fila.Insere(oancora); //ancora
     fila.Insere(ocarangueijo); //carangueijo
     fila.Insere(opassaro); //passaro
     fila.Insere(oluneta); //luneta
+    fila.Insere(oanzol);
+    fila.Insere(ocavalo);
+    fila.Insere(ocarta);
+    fila.Insere(ocolmeia);
+    fila.Insere(oconcha);
 
     while (window.isOpen()){
         
@@ -211,7 +282,37 @@ int nivel2::Run(sf::RenderWindow &window){
                                 std::cout<<"Retirou 5" <<std::endl;
                                 status5 = false;
                                 Objeto5.setTexture(luneta_c);
-                            }                          
+                            }
+                            else if(Objeto6e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj6)){
+                                lixo = fila.Retira();
+                                std::cout<<"Retirou 6" <<std::endl;
+                                status6 = false;
+                                //Objeto6.setTexture(luneta_c);
+                            }  
+                            else if(Objeto7e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj7)){
+                                lixo = fila.Retira();
+                                std::cout<<"Retirou 7" <<std::endl;
+                                status7 = false;
+                                //Objeto5.setTexture(luneta_c);
+                            }  
+                            else if(Objeto8e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj8)){
+                                lixo = fila.Retira();
+                                std::cout<<"Retirou 8" <<std::endl;
+                                status8 = false;
+                                //Objeto5.setTexture(luneta_c);
+                            }  
+                            else if(Objeto9e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj9)){
+                                lixo = fila.Retira();
+                                std::cout<<"Retirou 9" <<std::endl;
+                                status9 = false;
+                                //Objeto5.setTexture(luneta_c);
+                            }
+                            else if(Objeto10e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj10)){
+                                lixo = fila.Retira();
+                                std::cout<<"Retirou 10" <<std::endl;
+                                status10 = false;
+                                //Objeto5.setTexture(luneta_c);
+                            }                             
                         break;
                     }
 
@@ -240,6 +341,185 @@ int nivel2::Run(sf::RenderWindow &window){
             clockgeral.restart();
         }
 
+        switch(fila.firstfive(1)){
+            case obj0:
+                ostatus1 = false;
+            break;
+            case obj1:
+                Objeto1.setTexture(peixe);
+            break;
+            case obj2:
+                Objeto1.setTexture(ancora);
+            break;
+            case obj3:
+                Objeto1.setTexture(carangueijo);
+            break;
+            case obj4:
+                Objeto1.setTexture(passaro);
+            break;
+            case obj5:
+                Objeto1.setTexture(luneta);
+            break;
+            case obj6:
+                Objeto1.setTexture(anzol);
+            break;
+            case obj7:
+                Objeto1.setTexture(cavalo);
+            break;
+            case obj8:
+                Objeto1.setTexture(carta);
+            break;
+            case obj9:
+                Objeto1.setTexture(colmeia);
+            break;
+            case obj10:
+                Objeto1.setTexture(concha);
+            break;
+        }
+
+        switch(fila.firstfive(2)){
+            case obj0:
+                ostatus2 = false;
+            break;
+            case obj1:
+                Objeto2.setTexture(peixe);
+            break;
+            case obj2:
+                Objeto2.setTexture(ancora);
+            break;
+            case obj3:
+                Objeto2.setTexture(carangueijo);
+            break;
+            case obj4:
+                Objeto2.setTexture(passaro);
+            break;
+            case obj5:
+                Objeto2.setTexture(luneta);
+            break;
+            case obj6:
+                Objeto2.setTexture(anzol);
+            break;
+            case obj7:
+                Objeto2.setTexture(cavalo);
+            break;
+            case obj8:
+                Objeto2.setTexture(carta);
+            break;
+            case obj9:
+                Objeto2.setTexture(colmeia);
+            break;
+            case obj10:
+                Objeto2.setTexture(concha);
+            break;
+        }
+
+        switch(fila.firstfive(3)){
+            case obj0:
+                ostatus3 = false;
+            break;
+            case obj1:
+                Objeto3.setTexture(peixe);
+            break;
+            case obj2:
+                Objeto3.setTexture(ancora);
+            break;
+            case obj3:
+                Objeto3.setTexture(carangueijo);
+            break;
+            case obj4:
+                Objeto3.setTexture(passaro);
+            break;
+            case obj5:
+                Objeto3.setTexture(luneta);
+            break;
+            case obj6:
+                Objeto3.setTexture(anzol);
+            break;
+            case obj7:
+                Objeto3.setTexture(cavalo);
+            break;
+            case obj8:
+                Objeto3.setTexture(carta);
+            break;
+            case obj9:
+                Objeto3.setTexture(colmeia);
+            break;
+            case obj10:
+                Objeto3.setTexture(concha);
+            break;
+        }
+
+        switch(fila.firstfive(4)){
+            case obj0:
+                ostatus4 = false;
+            break;
+            case obj1:
+                Objeto4.setTexture(peixe);
+            break;
+            case obj2:
+                Objeto4.setTexture(ancora);
+            break;
+            case obj3:
+                Objeto4.setTexture(carangueijo);
+            break;
+            case obj4:
+                Objeto4.setTexture(passaro);
+            break;
+            case obj5:
+                Objeto4.setTexture(luneta);
+            break;
+            case obj6:
+                Objeto4.setTexture(anzol);
+            break;
+            case obj7:
+                Objeto4.setTexture(cavalo);
+            break;
+            case obj8:
+                Objeto4.setTexture(carta);
+            break;
+            case obj9:
+                Objeto4.setTexture(colmeia);
+            break;
+            case obj10:
+                Objeto4.setTexture(concha);
+            break;
+        }
+
+        switch(fila.firstfive(5)){
+            case obj0:
+                ostatus5 = false;
+            break;
+            case obj1:
+                Objeto5.setTexture(peixe);
+            break;
+            case obj2:
+                Objeto5.setTexture(ancora);
+            break;
+            case obj3:
+                Objeto5.setTexture(carangueijo);
+            break;
+            case obj4:
+                Objeto5.setTexture(passaro);
+            break;
+            case obj5:
+                Objeto5.setTexture(luneta);
+            break;
+            case obj6:
+                Objeto5.setTexture(anzol);
+            break;
+            case obj7:
+                Objeto5.setTexture(cavalo);
+            break;
+            case obj8:
+                Objeto5.setTexture(carta);
+            break;
+            case obj9:
+                Objeto5.setTexture(colmeia);
+            break;
+            case obj10:
+                Objeto5.setTexture(concha);
+            break;
+        }
 
         window.clear(sf::Color::White);
         window.draw(background);
@@ -253,11 +533,37 @@ int nivel2::Run(sf::RenderWindow &window){
             window.draw(Objeto4e);
         if (status5)
             window.draw(Objeto5e);
-        window.draw(Objeto1);
-        window.draw(Objeto2);
-        window.draw(Objeto3);
-        window.draw(Objeto4);
-        window.draw(Objeto5);
+        if (status6)
+            window.draw(Objeto6e);
+        if (status7)
+            window.draw(Objeto7e);
+        if (status8)
+            window.draw(Objeto8e);
+        if (status9)
+            window.draw(Objeto9e);
+        if (status10)
+            window.draw(Objeto10e);
+        if (ostatus1)
+            window.draw(Objeto1);
+        if (ostatus2)
+            window.draw(Objeto2);
+        if (ostatus3)
+            window.draw(Objeto3);
+        if (ostatus4)
+            window.draw(Objeto4);
+        if (ostatus5)
+            window.draw(Objeto5);
+        if (ostatus6)
+            window.draw(Objeto6);
+        if (ostatus7)
+            window.draw(Objeto7);
+        if (ostatus8)
+            window.draw(Objeto8);
+        if (ostatus9)
+            window.draw(Objeto9);
+        if (ostatus10)
+            window.draw(Objeto10);
+    
         window.draw(timerText);
         window.draw(timerhead);
         window.display();
