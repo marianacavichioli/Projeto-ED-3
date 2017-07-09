@@ -168,11 +168,6 @@ int nivel1::Run(sf::RenderWindow &window){
     fila.Insere(ocarangueijo); //carangueijo
     fila.Insere(opassaro); //passaro
     fila.Insere(oluneta); //luneta
-    std::cout << fila.Contador() << endl;
-    if (fila.first() == obj1)
-        std::cout << "Acho que deu bom" << endl;
-    if (fila.first() == obj3)
-        std::cout << "Ai deu ruim" << endl;
 
     while (window.isOpen()){
         
@@ -275,8 +270,6 @@ int nivel1::Run(sf::RenderWindow &window){
         if (countdown == 0){
             return 0; //tela perdeu
         }
-
     }
-    
     return (-1);
 }
