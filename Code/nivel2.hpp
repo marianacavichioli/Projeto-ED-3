@@ -531,11 +531,11 @@ int nivel2::Run(sf::RenderWindow &window){
         window.display();
 
         if (fila.Contador() == 0){
-            return 0; //tela de ganhou do lvl1
+            return 7; //tela de ganhou do lvl1
         }
 
         if (countdown == 0){
-            return 0; //tela perdeu
+            return 8; //tela perdeu
         }
     }
     return (-1);

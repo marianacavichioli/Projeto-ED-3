@@ -11,5 +11,7 @@
 #include "nivel1.hpp"
 #include "nivel2.hpp"
 #include "nivel3.hpp"
+#include "ganhou.hpp"
+#include "perdeu.hpp"
 
 #endif //SCREENS_HPP_INCLUDED

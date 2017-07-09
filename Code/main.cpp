@@ -21,7 +21,10 @@ int main(){
     Screens.push_back(&s4);
     nivel3 s5;
     Screens.push_back(&s5);
-
+    ganhou s6;
+    Screens.push_back(&s6);
+    perdeu s7;
+    Screens.push_back(&s7);
     
 
     while (screen >= 0){
@@ -43,6 +46,12 @@ int main(){
             break;
             case 6:
                 Screens[6] = new nivel3;
+            break;
+            case 7:
+                Screens[7] = new ganhou;
+            break;
+            case 8:
+                Screens[8] = new perdeu;
             break;
         }
     }
