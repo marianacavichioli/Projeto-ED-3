@@ -12,7 +12,7 @@ private:
     int posicaox, posicaoy, posicao;
     int countdown = 60;
     Fila fila;
-    Objeto obj1, obj2, obj3, obj4, obj5, lixo;
+    Objeto opeixe = obj1, oancora = obj2 , ocarangueijo = obj3, opassaro = obj4, oluneta = obj5, lixo;
     bool status1 = true, status2 = true, status3 = true, status4 = true, status5 = true;
     sf::Texture texture;
     sf::Texture peixeEscondido;
@@ -163,12 +163,16 @@ int nivel1::Run(sf::RenderWindow &window){
     sf::Sprite Objeto5(luneta);
     Objeto5.setPosition(sf::Vector2f(630,490));
 
-    fila.Insere(obj1); //peixe
-    fila.Insere(obj2); //ancora
-    fila.Insere(obj3); //carangueijo
-    fila.Insere(obj4); //passaro
-    fila.Insere(obj5); //luneta
+    fila.Insere(opeixe); //peixe
+    fila.Insere(oancora); //ancora
+    fila.Insere(ocarangueijo); //carangueijo
+    fila.Insere(opassaro); //passaro
+    fila.Insere(oluneta); //luneta
     std::cout << fila.Contador() << endl;
+    if (fila.first() == obj1)
+        std::cout << "Acho que deu bom" << endl;
+    if (fila.first() == obj3)
+        std::cout << "Ai deu ruim" << endl;
 
     while (window.isOpen()){
         

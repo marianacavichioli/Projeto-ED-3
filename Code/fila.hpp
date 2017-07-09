@@ -124,16 +124,15 @@ int main() {
 		
 	Fila f1;
 	Objeto lixo;
-	Objeto teste = obj1;
 	
 	if(f1.Vazia() == true)
 		cout << "deu bom"<< endl;
 	else
 		cout << "deu ruim" << endl;
 	
-	f1.Insere(teste);
-	f1.Insere(teste);
-	f1.Insere(teste);
+	f1.Insere(obj1);
+	f1.Insere(obj2);
+	f1.Insere(obj3);
 	cout << "Inseriu os objs" << endl;
 	cout << f1.Contador() << endl;
 	
@@ -141,6 +140,9 @@ int main() {
 	cout << "Retirou" << endl;
 	cout << f1.Contador() << endl;	
 		
+	if (lixo == obj1){
+		cout<< "true it is" << endl;
+	}
 	return 0;
 }
 */
