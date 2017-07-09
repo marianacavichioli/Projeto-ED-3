@@ -14,6 +14,7 @@ private:
     Fila fila;
     Objeto opeixe = obj1, oancora = obj2 , ocarangueijo = obj3, opassaro = obj4, oluneta = obj5, lixo;
     bool status1 = true, status2 = true, status3 = true, status4 = true, status5 = true;
+    bool ostatus1 = true, ostatus2 = true, ostatus3 = true, ostatus4 = true, ostatus5 = true;
     sf::Texture texture;
     sf::Texture peixeEscondido;
     sf::Texture ancoraEscondida;
@@ -111,39 +112,39 @@ int nivel1::Run(sf::RenderWindow &window){
 
     //Texturas Objetos Menu
 
-    if(!peixe.loadFromFile("../Images/recortadas/peixe_padrao.bmp")){
+    if(!peixe.loadFromFile("../Images/recortadas/peixe_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!ancora.loadFromFile("../Images/recortadas/ancora_padrao.bmp")){
+    if(!ancora.loadFromFile("../Images/recortadas/ancora_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!carangueijo.loadFromFile("../Images/recortadas/carangueijo_padrao.bmp")){
+    if(!carangueijo.loadFromFile("../Images/recortadas/carangueijo_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!luneta.loadFromFile("../Images/recortadas/luneta_padrao.bmp")){
+    if(!luneta.loadFromFile("../Images/recortadas/luneta_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!passaro.loadFromFile("../Images//recortadas/passara_padrao.bmp")){
+    if(!passaro.loadFromFile("../Images//recortadas/passaro_padrao.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!peixe_c.loadFromFile("../Images/recortadas/peixe_padrao_c.bmp")){
+    if(!peixe_c.loadFromFile("../Images/recortadas/peixe_padrao_c.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!ancora_c.loadFromFile("../Images/recortadas/ancora_padrao_c.bmp")){
+    if(!ancora_c.loadFromFile("../Images/recortadas/ancora_padrao_c.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!carangueijo_c.loadFromFile("../Images/recortadas/carangueijo_padrao_c.bmp")){
+    if(!carangueijo_c.loadFromFile("../Images/recortadas/carangueijo_padrao_c.png")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!luneta_c.loadFromFile("../Images/recortadas/luneta_padrao_c.bmp")){
+    if(!luneta_c.loadFromFile("../Images/recortadas/luneta_padrao_c.png")){
         std::cout << "Error" << std::endl;
     }
 
@@ -241,7 +242,110 @@ int nivel1::Run(sf::RenderWindow &window){
             clockgeral.restart();
         }
 
+        switch(fila.firstfive(1)){
+            case obj0:
+                ostatus1 = false;
+            break;
+            case obj1:
+                Objeto1.setTexture(peixe);
+            break;
+            case obj2:
+                Objeto1.setTexture(ancora);
+            break;
+            case obj3:
+                Objeto1.setTexture(carangueijo);
+            break;
+            case obj4:
+                Objeto1.setTexture(passaro);
+            break;
+            case obj5:
+                Objeto1.setTexture(luneta);
+            break;
+        }
 
+        switch(fila.firstfive(2)){
+            case obj0:
+                ostatus2 = false;
+            break;
+            case obj1:
+                Objeto2.setTexture(peixe);
+            break;
+            case obj2:
+                Objeto2.setTexture(ancora);
+            break;
+            case obj3:
+                Objeto2.setTexture(carangueijo);
+            break;
+            case obj4:
+                Objeto2.setTexture(passaro);
+            break;
+            case obj5:
+                Objeto2.setTexture(luneta);
+            break;
+        }
+
+        switch(fila.firstfive(3)){
+            case obj0:
+                ostatus3 = false;
+            break;
+            case obj1:
+                Objeto3.setTexture(peixe);
+            break;
+            case obj2:
+                Objeto3.setTexture(ancora);
+            break;
+            case obj3:
+                Objeto3.setTexture(carangueijo);
+            break;
+            case obj4:
+                Objeto3.setTexture(passaro);
+            break;
+            case obj5:
+                Objeto3.setTexture(luneta);
+            break;
+        }
+
+        switch(fila.firstfive(4)){
+            case obj0:
+                ostatus4 = false;
+            break;
+            case obj1:
+                Objeto4.setTexture(peixe);
+            break;
+            case obj2:
+                Objeto4.setTexture(ancora);
+            break;
+            case obj3:
+                Objeto4.setTexture(carangueijo);
+            break;
+            case obj4:
+                Objeto4.setTexture(passaro);
+            break;
+            case obj5:
+                Objeto4.setTexture(luneta);
+            break;
+        }
+
+        switch(fila.firstfive(5)){
+            case obj0:
+                ostatus5 = false;
+            break;
+            case obj1:
+                Objeto5.setTexture(peixe);
+            break;
+            case obj2:
+                Objeto5.setTexture(ancora);
+            break;
+            case obj3:
+                Objeto5.setTexture(carangueijo);
+            break;
+            case obj4:
+                Objeto5.setTexture(passaro);
+            break;
+            case obj5:
+                Objeto5.setTexture(luneta);
+            break;
+        }
         window.clear(sf::Color::White);
         window.draw(background);
         if (status1)
@@ -254,11 +358,16 @@ int nivel1::Run(sf::RenderWindow &window){
             window.draw(Objeto4e);
         if (status5)
             window.draw(Objeto5e);
-        window.draw(Objeto1);
-        window.draw(Objeto2);
-        window.draw(Objeto3);
-        window.draw(Objeto4);
-        window.draw(Objeto5);
+        if (ostatus1)
+            window.draw(Objeto1);
+        if (ostatus2)
+            window.draw(Objeto2);
+        if (ostatus3)
+            window.draw(Objeto3);
+        if (ostatus4)
+            window.draw(Objeto4);
+        if (ostatus5)
+            window.draw(Objeto5);
         window.draw(timerText);
         window.draw(timerhead);
         window.display();
