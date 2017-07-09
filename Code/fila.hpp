@@ -23,6 +23,7 @@ class Fila {
 			bool Vazia();
 			int Contador();	
 			Objeto first();
+			Objeto firstfive(int);
 };
 
 Fila::Fila() {
@@ -116,6 +117,40 @@ int Fila::Contador(){
 Objeto Fila::first(){
 	Objeto o;
 	o = primeiro->info;
+	return o;
+}
+
+Objeto Fila::firstfive(int x){
+	Objeto o = obj0;
+	if (primeiro != NULL){
+		switch (x){
+			case 1:
+				if(primeiro != NULL){
+					o = primeiro->info;
+				}
+			break;
+			case 2:
+				if(primeiro->next != NULL && primeiro->next != primeiro){
+					o = primeiro->next->info;
+				}
+			break;
+			case 3:
+				if(primeiro->next->next != NULL &&primeiro->next->next != primeiro){
+					o = primeiro->next->next->info;
+				}
+			break;
+			case 4:
+				if(primeiro->next->next->next != NULL && primeiro->next->next->next != primeiro){
+					o = primeiro->next->next->next->info;
+				}
+			break;
+			case 5:
+				if(primeiro->next->next->next->next != NULL && primeiro->next->next->next->next != primeiro){
+					o = primeiro->next->next->next->next->info;
+				}
+			break;
+		}
+	}
 	return o;
 }
 	
