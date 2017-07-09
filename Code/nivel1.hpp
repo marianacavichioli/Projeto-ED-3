@@ -11,7 +11,6 @@ class nivel1 : public cScreen{
 private:
     int posicaox, posicaoy, posicao;
     int countdown = 60;
-    int index = 1;
     Fila fila;
     Objeto obj1, obj2, obj3, obj4, obj5, lixo;
     bool status1 = true, status2 = true, status3 = true, status4 = true, status5 = true;
@@ -26,6 +25,11 @@ private:
     sf::Texture carangueijo;
     sf::Texture luneta;
     sf::Texture passaro;
+    sf::Texture peixe_c;
+    sf::Texture ancora_c;
+    sf::Texture carangueijo_c;
+    sf::Texture luneta_c;
+    sf::Texture passaro_c;
     sf::Sprite background;
     sf::Font font;
     sf::Clock clockgeral;
@@ -90,58 +94,74 @@ int nivel1::Run(sf::RenderWindow &window){
     }
 
     //Objetos Escondidos
-    sf::Sprite Objeto1(peixeEscondido);
-    Objeto1.setPosition(sf::Vector2f(750,310));
+    sf::Sprite Objeto1e(peixeEscondido);
+    Objeto1e.setPosition(sf::Vector2f(750,310));
 
-    sf::Sprite Objeto2(ancoraEscondida);
-    Objeto2.setPosition(sf::Vector2f(145,310));
+    sf::Sprite Objeto2e(ancoraEscondida);
+    Objeto2e.setPosition(sf::Vector2f(145,310));
 
-    sf::Sprite Objeto3(carangueijoEscondido);
-    Objeto3.setPosition(sf::Vector2f(285,479));
+    sf::Sprite Objeto3e(carangueijoEscondido);
+    Objeto3e.setPosition(sf::Vector2f(285,479));
 
-    sf::Sprite Objeto4(lunetaEscondida);
-    Objeto4.setPosition(sf::Vector2f(240,450));
+    sf::Sprite Objeto4e(passaroEscondido);
+    Objeto4e.setPosition(sf::Vector2f(350,60));
 
-    sf::Sprite Objeto5(passaroEscondido);
-    Objeto5.setPosition(sf::Vector2f(350,60));
+    sf::Sprite Objeto5e(lunetaEscondida);
+    Objeto5e.setPosition(sf::Vector2f(240,450));
 
     //Texturas Objetos Menu
 
-    if(!peixe.loadFromFile("../Images/peixinho.png")){
+    if(!peixe.loadFromFile("../Images/recortadas/peixe_padrao.bmp")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!ancora.loadFromFile("../Images/ancora.png")){
+    if(!ancora.loadFromFile("../Images/recortadas/ancora_padrao.bmp")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!carangueijo.loadFromFile("../Images/carangueijo.png")){
+    if(!carangueijo.loadFromFile("../Images/recortadas/carangueijo_padrao.bmp")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!luneta.loadFromFile("../Images/luneta.png")){
+    if(!luneta.loadFromFile("../Images/recortadas/luneta_padrao.bmp")){
         std::cout << "Error" << std::endl;
     }
 
-    if(!passaro.loadFromFile("../Images/passaro.png")){
+    if(!passaro.loadFromFile("../Images//recortadas/passara_padrao.bmp")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!peixe_c.loadFromFile("../Images/recortadas/peixe_padrao_c.bmp")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!ancora_c.loadFromFile("../Images/recortadas/ancora_padrao_c.bmp")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!carangueijo_c.loadFromFile("../Images/recortadas/carangueijo_padrao_c.bmp")){
+        std::cout << "Error" << std::endl;
+    }
+
+    if(!luneta_c.loadFromFile("../Images/recortadas/luneta_padrao_c.bmp")){
         std::cout << "Error" << std::endl;
     }
 
     //Objetos Menu
-    sf::Sprite Objeto6(peixe);
-    Objeto6.setPosition(sf::Vector2f(390,515));
+    sf::Sprite Objeto1(peixe);
+    Objeto1.setPosition(sf::Vector2f(390,515));
 
-    sf::Sprite Objeto7(ancora);
-    Objeto7.setPosition(sf::Vector2f(450,515));
+    sf::Sprite Objeto2(ancora);
+    Objeto2.setPosition(sf::Vector2f(450,515));
 
-    sf::Sprite Objeto8(carangueijo);
-    Objeto8.setPosition(sf::Vector2f(490,515));
+    sf::Sprite Objeto3(carangueijo);
+    Objeto3.setPosition(sf::Vector2f(490,515));
 
-    sf::Sprite Objeto9(luneta);
-    Objeto9.setPosition(sf::Vector2f(630,500));
+    sf::Sprite Objeto4(luneta);
+    Objeto4.setPosition(sf::Vector2f(630,500));
 
-    sf::Sprite Objeto10(passaro);
-    Objeto10.setPosition(sf::Vector2f(560,510));
+    sf::Sprite Objeto5(passaro);
+    Objeto5.setPosition(sf::Vector2f(560,510));
 
     fila.Insere(obj1); //peixe
     fila.Insere(obj2); //ancora
@@ -165,35 +185,34 @@ int nivel1::Run(sf::RenderWindow &window){
 
                         case sf::Mouse::Left:
                             std::cout << "Pressed" << std::endl; 
-                            if(Objeto1.getGlobalBounds().contains(posicaox, posicaoy) && fila.first() == obj1){
+                            if(Objeto1e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj1)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 1" <<std::endl;
                                 status1 = false;
-                                index++;
+                                Objeto1.setTexture(peixe_c);
                             }
-                            else if(Objeto2.getGlobalBounds().contains(posicaox, posicaoy) && fila.first() == obj2){
+                            else if(Objeto2e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj2)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 2" <<std::endl;
                                 status2 = false;
-                                index++;
+                                Objeto2.setTexture(ancora_c);
                             }
-                            else if(Objeto3.getGlobalBounds().contains(posicaox, posicaoy) && fila.first() == obj3){
+                            else if(Objeto3e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj3)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 3" <<std::endl;
                                 status3 = false;
-                                index++;
+                                Objeto3.setTexture(carangueijo_c);
                             }
-                            else if(Objeto4.getGlobalBounds().contains(posicaox, posicaoy) && fila.first() == obj4){
+                            else if(Objeto4e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj4)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 4" <<std::endl;
                                 status4 = false;
-                                index++;
                             }
-                            else if(Objeto5.getGlobalBounds().contains(posicaox, posicaoy) && fila.first() == obj5){
+                            else if(Objeto5e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj5)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 5" <<std::endl;
                                 status5 = false;
-                                index++;
+                                Objeto5.setTexture(luneta_c);
                             }                          
                         break;
                     }
@@ -227,20 +246,20 @@ int nivel1::Run(sf::RenderWindow &window){
         window.clear(sf::Color::White);
         window.draw(background);
         if (status1)
-            window.draw(Objeto1);
+            window.draw(Objeto1e);
         if (status2)
-            window.draw(Objeto2);
+            window.draw(Objeto2e);
         if (status3)
-            window.draw(Objeto3);
+            window.draw(Objeto3e);
         if (status4)
-            window.draw(Objeto4);
+            window.draw(Objeto4e);
         if (status5)
-            window.draw(Objeto5);
-        window.draw(Objeto6);
-        window.draw(Objeto7);
-        window.draw(Objeto8);
-        window.draw(Objeto9);
-        window.draw(Objeto10);
+            window.draw(Objeto5e);
+        window.draw(Objeto1);
+        window.draw(Objeto2);
+        window.draw(Objeto3);
+        window.draw(Objeto4);
+        window.draw(Objeto5);
         window.draw(timerText);
         window.draw(timerhead);
         window.display();
