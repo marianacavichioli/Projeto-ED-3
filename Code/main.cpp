@@ -1,4 +1,5 @@
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 #include <iostream>
 #include "Screens.hpp"
 
@@ -9,6 +10,14 @@ int main(){
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "Where are ye?");
 
+    sf::Music music;
+
+    if (!music.openFromFile("../Sounds/1.ogg")){
+
+    }
+    music.setLoop(true);
+    music.play();
+    
     mainmenu s0;
     Screens.push_back(&s0);
     play s1;
@@ -29,6 +38,9 @@ int main(){
 
     while (screen >= 0){
         switch (screen = Screens[screen]->Run(window)){
+            case 0:
+                Screens[0] = new mainmenu;
+            break;
             case 1:
                 Screens[1] = new play;
             break;
@@ -39,6 +51,7 @@ int main(){
                 window.close();
             break;
             case 4:
+
                 Screens[4] = new nivel1;
             break;
             case 5:
