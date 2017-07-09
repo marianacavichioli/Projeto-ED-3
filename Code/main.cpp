@@ -7,7 +7,7 @@ int main(){
     std::vector<cScreen*> Screens;
     int screen = 0;
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Jogo indefinido");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Where are ye?");
 
     mainmenu s0;
     Screens.push_back(&s0);

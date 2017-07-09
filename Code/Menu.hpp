@@ -29,7 +29,7 @@ Menu::Menu(float width, float height){
 
 	menu[0].setFont(font);
 	menu[0].setColor(sf::Color::Black);
-	menu[0].setString("WHERE ARE YOU?");
+	menu[0].setString("Where are ye?");
 	menu[0].setPosition(sf::Vector2f(195,60));	
 	menu[0].setCharacterSize(70);
 
