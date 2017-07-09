@@ -68,13 +68,13 @@ int play::Run(sf::RenderWindow &window){
                         case sf::Mouse::Left:
 
                             if(nivel1.getGlobalBounds().contains(posicaox, posicaoy)){
-                                return 4;
+                                return 6;
                             }
                             else if(nivel2.getGlobalBounds().contains(posicaox, posicaoy)){
                                 return 5;
                             }
                             else if(nivel3.getGlobalBounds().contains(posicaox, posicaoy)){
-                                return 6;
+                                return 4;
                             }
                         break;
                     }
