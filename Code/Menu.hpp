@@ -28,25 +28,25 @@ Menu::Menu(float width, float height){
 	}
 
 	menu[0].setFont(font);
-	menu[0].setColor(sf::Color::White);
+	menu[0].setColor(sf::Color::Black);
 	menu[0].setString("WHERE ARE YOU?");
 	menu[0].setPosition(sf::Vector2f(195,60));	
 	menu[0].setCharacterSize(70);
 
 	menu[1].setFont(font);
-	menu[1].setColor(sf::Color::White);
+	menu[1].setColor(sf::Color::Black);
 	menu[1].setString("Jogar");
 	menu[1].setPosition(sf::Vector2f(350,220));	
 	menu[1].setCharacterSize(50);		
 
 	menu[2].setFont(font);
-	menu[2].setColor(sf::Color::White);
+	menu[2].setColor(sf::Color::Black);
 	menu[2].setString("Como Jogar");
 	menu[2].setPosition(sf::Vector2f(300, 300));	
 	menu[2].setCharacterSize(50);	
 
 	menu[3].setFont(font);
-	menu[3].setColor(sf::Color::White);
+	menu[3].setColor(sf::Color::Black);
 	menu[3].setString("Sair");
 	menu[3].setPosition(sf::Vector2f(355, 380));	
 	menu[3].setCharacterSize(50);	
@@ -89,9 +89,9 @@ void Menu::Position(int posicaox, int posicaoy){
 		}	
 	}
 
-	menu[1].setColor(sf::Color::White);
-	menu[2].setColor(sf::Color::White);
-	menu[3].setColor(sf::Color::White);
+	menu[1].setColor(sf::Color::Black);
+	menu[2].setColor(sf::Color::Black);
+	menu[3].setColor(sf::Color::Black);
 
 	if (posicao == 1){
 		menu[1].setColor(sf::Color::Red);

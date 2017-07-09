@@ -18,14 +18,14 @@ mainmenu::mainmenu(void){
 
 int mainmenu::Run(sf::RenderWindow &window){
 
-    /*sf::Sprite background;
+    sf::Sprite background;
     sf::Texture texture;
 
-    if(!texture.loadFromFile("../Images/menu_sem_texto.bmp")){
+    if(!texture.loadFromFile("../Images/fundo_inicio.bmp")){
         std::cout << "Error" << std::endl;
     }
 
-    background.setTexture(texture);*/
+    background.setTexture(texture);
 
     Menu menu(window.getSize().x, window.getSize().y);
 
@@ -62,7 +62,7 @@ int mainmenu::Run(sf::RenderWindow &window){
         }
         
         window.clear();
-        //window.draw(background);
+        window.draw(background);
         menu.draw(window);
         window.display();
 
