@@ -152,49 +152,49 @@ int nivel3::Run(sf::RenderWindow &window){
 
     //Objetos Escondidos
     sf::Sprite Objeto1e(peixeEscondido);
-    Objeto1e.setPosition(sf::Vector2f(100,100));
+    Objeto1e.setPosition(sf::Vector2f(500,300));
 
     sf::Sprite Objeto2e(ancoraEscondida);
-    Objeto2e.setPosition(sf::Vector2f(100,100));
+    Objeto2e.setPosition(sf::Vector2f(260,430));
 
     sf::Sprite Objeto3e(carangueijoEscondido);
-    Objeto3e.setPosition(sf::Vector2f(100,100));
+    Objeto3e.setPosition(sf::Vector2f(23,90));
 
     sf::Sprite Objeto4e(passaroEscondido);
-    Objeto4e.setPosition(sf::Vector2f(100,100));
+    Objeto4e.setPosition(sf::Vector2f(100,525));
 
     sf::Sprite Objeto5e(lunetaEscondida);
-    Objeto5e.setPosition(sf::Vector2f(100,100));
+    Objeto5e.setPosition(sf::Vector2f(180,427));
 
     sf::Sprite Objeto6e(anzolEscondido);
-    Objeto6e.setPosition(sf::Vector2f(100,100));
+    Objeto6e.setPosition(sf::Vector2f(542,431));
 
     sf::Sprite Objeto7e(cavaloEscondido);
-    Objeto7e.setPosition(sf::Vector2f(100,100));
+    Objeto7e.setPosition(sf::Vector2f(775,45));
 
     sf::Sprite Objeto8e(cartaEscondida);
-    Objeto8e.setPosition(sf::Vector2f(100,100));
+    Objeto8e.setPosition(sf::Vector2f(240,450));
 
     sf::Sprite Objeto9e(colmeiaEscondida);
-    Objeto9e.setPosition(sf::Vector2f(100,100));
+    Objeto9e.setPosition(sf::Vector2f(235,190));
 
     sf::Sprite Objeto10e(conchaEscondida);
-    Objeto10e.setPosition(sf::Vector2f(100,100));
+    Objeto10e.setPosition(sf::Vector2f(100,579));
 
     sf::Sprite Objeto11e(bolaEscondida);
-    Objeto11e.setPosition(sf::Vector2f(100,100));
+    Objeto11e.setPosition(sf::Vector2f(187,200));
 
     sf::Sprite Objeto12e(cdEscondido);
-    Objeto12e.setPosition(sf::Vector2f(100,100));
+    Objeto12e.setPosition(sf::Vector2f(230,51));
 
     sf::Sprite Objeto13e(garrafaEscondida);
-    Objeto13e.setPosition(sf::Vector2f(100,100));
+    Objeto13e.setPosition(sf::Vector2f(33,227));
 
     sf::Sprite Objeto14e(joaninhaEscondida);
-    Objeto14e.setPosition(sf::Vector2f(100,100));
+    Objeto14e.setPosition(sf::Vector2f(307,494));
 
     sf::Sprite Objeto15e(ossosEscondido);
-    Objeto15e.setPosition(sf::Vector2f(100,100));
+    Objeto15e.setPosition(sf::Vector2f(165,15));
 
     //Texturas Objetos Menu
 
@@ -304,7 +304,7 @@ int nivel3::Run(sf::RenderWindow &window){
                     switch(event.key.code){
 
                         case sf::Mouse::Left:
-                            std::cout << "Pressed" << std::endl; 
+                            std::cout << posicaox << "," << posicaoy << std::endl; 
                             if(Objeto1e.getGlobalBounds().contains(posicaox, posicaoy) && (fila.first() == obj1)){
                                 lixo = fila.Retira();
                                 std::cout<<"Retirou 1" <<std::endl;
