@@ -14,7 +14,7 @@ private:
     Fila fila;
     Objeto opeixe = obj1, oancora = obj2 , ocarangueijo = obj3, opassaro = obj4, oluneta = obj5, lixo, oanzol = obj6, ocavalo = obj7, ocarta = obj8, ocolmeia = obj9, oconcha = obj10;
     bool status1 = true, status2 = true, status3 = true, status4 = true, status5 = true, status6 = true, status7 = true, status8 = true, status9 = true, status10 = true;
-    bool ostatus1 = true, ostatus2 = true, ostatus3 = true, ostatus4 = true, ostatus5 = true, ostatus6 = true, ostatus7 = true, ostatus8 = true, ostatus9 = true, ostatus10 = true;
+    bool ostatus1 = true, ostatus2 = true, ostatus3 = true, ostatus4 = true, ostatus5 = true;
     sf::Texture texture;
     sf::Texture peixeEscondido;
     sf::Texture ancoraEscondida;
@@ -213,20 +213,6 @@ int nivel2::Run(sf::RenderWindow &window){
     sf::Sprite Objeto5(luneta);
     Objeto5.setPosition(sf::Vector2f(630,490));
 
-    sf::Sprite Objeto6(anzol);
-    Objeto6.setPosition(sf::Vector2f(630,490));
-
-    sf::Sprite Objeto7(cavalo);
-    Objeto7.setPosition(sf::Vector2f(630,490));
-
-    sf::Sprite Objeto8(carta);
-    Objeto8.setPosition(sf::Vector2f(630,490));
-
-    sf::Sprite Objeto9(colmeia);
-    Objeto9.setPosition(sf::Vector2f(630,490));
-
-    sf::Sprite Objeto10(concha);
-    Objeto10.setPosition(sf::Vector2f(630,490));
 
     fila.Insere(opeixe); //peixe
     fila.Insere(oancora); //ancora
@@ -553,16 +539,6 @@ int nivel2::Run(sf::RenderWindow &window){
             window.draw(Objeto4);
         if (ostatus5)
             window.draw(Objeto5);
-        if (ostatus6)
-            window.draw(Objeto6);
-        if (ostatus7)
-            window.draw(Objeto7);
-        if (ostatus8)
-            window.draw(Objeto8);
-        if (ostatus9)
-            window.draw(Objeto9);
-        if (ostatus10)
-            window.draw(Objeto10);
     
         window.draw(timerText);
         window.draw(timerhead);
