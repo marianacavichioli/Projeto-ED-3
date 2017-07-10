@@ -3,7 +3,13 @@
 #include <iostream>
 #include "Screens.hpp"
 
+//Linha referente para remover o cmd no windows.
+//#include <windows.h>
+
 int main(){
+	//Linhas referentes para remover o cmd no windows.
+	//HWND hWnd = GetConsoleWindow();
+	//ShowWindow( hWnd, SW_HIDE );
 
     std::vector<cScreen*> Screens;
     int screen = 0;
